@@ -369,18 +369,18 @@
       .tunnel-visual {
         position: relative;
         z-index: 1;
-        padding: 60px 24px;
+        padding: 40px 24px 60px;
         display: flex;
         justify-content: center;
       }
 
       .tunnel-box {
-        max-width: 700px;
+        max-width: 600px;
         width: 100%;
-        background: var(--bg-navy);
+        background: linear-gradient(135deg, var(--bg-navy), var(--surface-dark));
         border: 1px solid var(--grey-700);
         border-radius: 20px;
-        padding: 32px;
+        padding: 36px 32px;
         text-align: center;
       }
 
@@ -388,38 +388,55 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 16px;
-        margin-bottom: 24px;
+        gap: 0;
+        margin-bottom: 20px;
       }
 
       .status-node {
-        width: 56px;
-        height: 56px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .status-node svg {
+        width: 22px;
+        height: 22px;
       }
 
       .node-device {
-        background: rgba(255, 116, 0, 0.15);
+        background: rgba(255, 116, 0, 0.12);
         border: 2px solid var(--primary-orange);
+        box-shadow: 0 0 16px rgba(255, 116, 0, 0.15);
+      }
+
+      .node-device svg {
+        fill: var(--primary-orange);
       }
 
       .node-server {
-        background: rgba(76, 175, 80, 0.15);
+        background: rgba(76, 175, 80, 0.12);
         border: 2px solid var(--status-connected);
+        box-shadow: 0 0 16px rgba(76, 175, 80, 0.15);
+      }
+
+      .node-server svg {
+        fill: var(--status-connected);
       }
 
       .tunnel-line {
         flex: 1;
-        max-width: 160px;
-        height: 3px;
+        max-width: 180px;
+        min-width: 60px;
+        height: 2px;
         background: var(--grey-700);
         border-radius: 2px;
         position: relative;
         overflow: hidden;
+        margin: 0 12px;
       }
 
       .tunnel-line::after {
@@ -447,14 +464,30 @@
         }
       }
 
-      .tunnel-label {
-        font-size: 13px;
+      .tunnel-labels {
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        margin-bottom: 16px;
+      }
+
+      .tunnel-node-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
         color: var(--grey-400);
-        margin-top: 16px;
+      }
+
+      .tunnel-label {
+        font-size: 14px;
+        color: var(--grey-300);
+        margin-top: 4px;
       }
 
       .tunnel-label strong {
         color: var(--status-connected);
+        font-weight: 600;
       }
 
       /* Footer */
@@ -532,37 +565,9 @@
           grid-template-columns: 1fr;
         }
 
-        .tunnel-status {
-          flex-direction: column;
+        .tunnel-labels {
+          gap: 40px;
         }
-
-        .tunnel-line {
-          width: 3px;
-          height: 40px;
-          max-width: 3px;
-        }
-
-        .tunnel-line::after {
-          width: 100%;
-          height: 40%;
-          left: 0;
-          top: -40%;
-          background: linear-gradient(
-            180deg,
-            transparent,
-            var(--primary-orange),
-            transparent
-          );
-          animation: flowVertical 2s ease-in-out infinite;
-        }
-
-        @keyframes flowVertical {
-          0% {
-            top: -40%;
-          }
-          100% {
-            top: 100%;
-          }
         }
 
         .footer-inner {
@@ -649,12 +654,20 @@
     <div class="tunnel-visual">
       <div class="tunnel-box">
         <div class="tunnel-status">
-          <div class="status-node node-device">📱</div>
+          <div class="status-node node-device">
+            <svg viewBox="0 0 24 24"><path d="M17,1H7A2,2,0,0,0,5,3V21a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V3A2,2,0,0,0,17,1ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm5-4H7V4H17Z"/></svg>
+          </div>
           <div class="tunnel-line"></div>
-          <div class="status-node node-server">🖥️</div>
+          <div class="status-node node-server">
+            <svg viewBox="0 0 24 24"><path d="M4,1H20A1,1,0,0,1,21,2V16a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V2A1,1,0,0,1,4,1ZM5,3V15H19V3ZM11,17h2v3h4v2H7V20h4Z"/></svg>
+          </div>
+        </div>
+        <div class="tunnel-labels">
+          <span class="tunnel-node-label">Your Device</span>
+          <span class="tunnel-node-label">Server</span>
         </div>
         <p class="tunnel-label">
-          Encrypted tunnel &mdash; <strong>Connected</strong>
+          Encrypted SSH tunnel &mdash; <strong>Connected</strong>
         </p>
       </div>
     </div>
