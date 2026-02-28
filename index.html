@@ -156,7 +156,8 @@
       }
 
       .nav-links a:hover {
-        color: var(--primary-orange);
+        color: var(--text-white);
+        opacity: 0.85;
       }
 
       /* Hero Section */
@@ -384,12 +385,28 @@
         text-align: center;
       }
 
-      .tunnel-status {
+      .tunnel-row {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0;
         margin-bottom: 20px;
+      }
+
+      .tunnel-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .tunnel-node-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--grey-400);
       }
 
       .status-node {
@@ -464,20 +481,7 @@
         }
       }
 
-      .tunnel-labels {
-        display: flex;
-        justify-content: center;
-        gap: 80px;
-        margin-bottom: 16px;
-      }
 
-      .tunnel-node-label {
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: var(--grey-400);
-      }
 
       .tunnel-label {
         font-size: 14px;
@@ -565,11 +569,6 @@
           grid-template-columns: 1fr;
         }
 
-        .tunnel-labels {
-          gap: 40px;
-        }
-        }
-
         .footer-inner {
           flex-direction: column;
           text-align: center;
@@ -653,18 +652,20 @@
     <!-- Tunnel Visual -->
     <div class="tunnel-visual">
       <div class="tunnel-box">
-        <div class="tunnel-status">
-          <div class="status-node node-device">
-            <svg viewBox="0 0 24 24"><path d="M17,1H7A2,2,0,0,0,5,3V21a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V3A2,2,0,0,0,17,1ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm5-4H7V4H17Z"/></svg>
+        <div class="tunnel-row">
+          <div class="tunnel-node">
+            <div class="status-node node-device">
+              <svg viewBox="0 0 24 24"><path d="M17,1H7A2,2,0,0,0,5,3V21a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V3A2,2,0,0,0,17,1ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm5-4H7V4H17Z"/></svg>
+            </div>
+            <span class="tunnel-node-label">Your Device</span>
           </div>
           <div class="tunnel-line"></div>
-          <div class="status-node node-server">
-            <svg viewBox="0 0 24 24"><path d="M4,1H20A1,1,0,0,1,21,2V16a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V2A1,1,0,0,1,4,1ZM5,3V15H19V3ZM11,17h2v3h4v2H7V20h4Z"/></svg>
+          <div class="tunnel-node">
+            <div class="status-node node-server">
+              <svg viewBox="0 0 24 24"><path d="M4,1H20A1,1,0,0,1,21,2V16a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V2A1,1,0,0,1,4,1ZM5,3V15H19V3ZM11,17h2v3h4v2H7V20h4Z"/></svg>
+            </div>
+            <span class="tunnel-node-label">Server</span>
           </div>
-        </div>
-        <div class="tunnel-labels">
-          <span class="tunnel-node-label">Your Device</span>
-          <span class="tunnel-node-label">Server</span>
         </div>
         <p class="tunnel-label">
           Encrypted SSH tunnel &mdash; <strong>Connected</strong>
@@ -737,7 +738,7 @@
               >Direct</span
             ><span style="font-weight: 700; margin-left: 4px">Tunnel</span>
           </div>
-          <span class="footer-text">&copy; 2025 Sories Lab</span>
+          <span class="footer-text">&copy; 2026 SoriesLab H-Core</span>
         </div>
         <div class="footer-links">
           <a href="https://sites.google.com/view/direct-tunnel" target="_blank"
