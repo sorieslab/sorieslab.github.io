@@ -378,7 +378,11 @@
       .tunnel-box {
         max-width: 600px;
         width: 100%;
-        background: linear-gradient(135deg, var(--bg-navy), var(--surface-dark));
+        background: linear-gradient(
+          135deg,
+          var(--bg-navy),
+          var(--surface-dark)
+        );
         border: 1px solid var(--grey-700);
         border-radius: 20px;
         padding: 36px 32px;
@@ -481,8 +485,6 @@
         }
       }
 
-
-
       .tunnel-label {
         font-size: 14px;
         color: var(--grey-300);
@@ -541,6 +543,12 @@
       }
 
       /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links a[href="#features"] {
+          display: none;
+        }
+      }
+
       @media (max-width: 640px) {
         .nav-links {
           gap: 16px;
@@ -583,7 +591,9 @@
     <nav>
       <div class="nav-inner">
         <a href="#" class="logo">
-          <div class="logo-icon"><img src="logo.svg" alt="Direct Tunnel"></div>
+          <div class="logo-icon">
+            <img src="logo.svg" alt="Direct Tunnel" />
+          </div>
           <div class="logo-text"><span>Direct</span><span>Tunnel</span></div>
         </a>
         <div class="nav-links">
@@ -655,14 +665,22 @@
         <div class="tunnel-row">
           <div class="tunnel-node">
             <div class="status-node node-device">
-              <svg viewBox="0 0 24 24"><path d="M17,1H7A2,2,0,0,0,5,3V21a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V3A2,2,0,0,0,17,1ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm5-4H7V4H17Z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17,1H7A2,2,0,0,0,5,3V21a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V3A2,2,0,0,0,17,1ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm5-4H7V4H17Z"
+                />
+              </svg>
             </div>
             <span class="tunnel-node-label">Your Device</span>
           </div>
           <div class="tunnel-line"></div>
           <div class="tunnel-node">
             <div class="status-node node-server">
-              <svg viewBox="0 0 24 24"><path d="M4,1H20A1,1,0,0,1,21,2V16a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V2A1,1,0,0,1,4,1ZM5,3V15H19V3ZM11,17h2v3h4v2H7V20h4Z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M4,1H20A1,1,0,0,1,21,2V16a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V2A1,1,0,0,1,4,1ZM5,3V15H19V3ZM11,17h2v3h4v2H7V20h4Z"
+                />
+              </svg>
             </div>
             <span class="tunnel-node-label">Server</span>
           </div>
